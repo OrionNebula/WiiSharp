@@ -40,6 +40,7 @@ namespace EnarcLabs.WiiSharp
     {
         private WiimoteButton _LastButtons;
         private IntPtr _Handle;
+        private ManualResetEvent _Event;
         private NativeOverlapped _Overlap;
 
         #region Properties
@@ -265,7 +266,8 @@ namespace EnarcLabs.WiiSharp
             Kernel.CloseHandle(_Handle);
             _Handle = IntPtr.Zero;
 
-            Kernel.ResetEvent(_Overlap.EventHandle);
+            _Event.Reset();
+            //Kernel.ResetEvent(_Overlap.EventHandle);
 
             State &= ~(WiimoteState.Connected | WiimoteState.Handshake | WiimoteState.HandshakeComplete);
 
@@ -393,23 +395,15 @@ namespace EnarcLabs.WiiSharp
                     return false;
                 }
 
-                var r = Kernel.WaitForSingleObject(_Overlap.EventHandle, (uint)timeout.TotalMilliseconds);
-                if(r == 258) //Timeout
-                {
-                    Kernel.CancelIo(_Handle);
-                    Kernel.ResetEvent(_Overlap.EventHandle);
-                    return false;
-                } else if( r == 0xFFFFFFFF)
-                {
-                    return false;
-                }
+                _Event.WaitOne(timeout);
             }
 
             uint bytes;
             if (!Kernel.GetOverlappedResult(_Handle, ref _Overlap, out bytes, false))
                 return false;
 
-            Kernel.ResetEvent(_Overlap.EventHandle);
+            _Event.Reset();
+            //Kernel.ResetEvent(_Overlap.EventHandle);
             return true;
         }
 
@@ -530,7 +524,8 @@ namespace EnarcLabs.WiiSharp
                         State = WiimoteState.DeviceFound | WiimoteState.Connected
                     };
 
-                    wm._Overlap = new NativeOverlapped() { EventHandle = Kernel.CreateEvent(IntPtr.Zero, true, true, "") };
+                    wm._Event = new ManualResetEvent(false);
+                    wm._Overlap = new NativeOverlapped() { EventHandle = wm._Event.SafeWaitHandle.DangerousGetHandle() };
 
                     toRet.Add(wm);
 
