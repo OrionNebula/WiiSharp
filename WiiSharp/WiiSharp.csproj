@@ -60,7 +60,7 @@
     <Compile Include="Native\Kernel.cs" />
     <Compile Include="Native\HID.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wiimote.cs" />
+    <Compile Include="WiiMote.cs" />
     <Compile Include="Enum\WiiMoteType.cs" />
   </ItemGroup>
   <ItemGroup>
