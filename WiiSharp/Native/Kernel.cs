@@ -39,7 +39,7 @@ namespace EnarcLabs.WiiSharp.Native
         internal static extern bool ReadFile(IntPtr hFile, [Out] byte[] lpBuffer,
           uint nNumberOfBytesToRead, out uint lpNumberOfBytesRead, [In] ref NativeOverlapped lpOverlapped);
 
-        /*[DllImport("kernel32.dll", SetLastError=true)]
+        [DllImport("kernel32.dll", SetLastError=true)]
         internal static extern uint WaitForSingleObject(IntPtr hHandle, uint dwMilliseconds);
 
         [DllImport("kernel32.dll")]
@@ -50,7 +50,7 @@ namespace EnarcLabs.WiiSharp.Native
         internal static extern bool ResetEvent(IntPtr hEvent);
 
         [DllImport("kernel32.dll")]
-        internal static extern IntPtr CreateEvent(IntPtr lpEventAttributes, bool bManualReset, bool bInitialState, string lpName);*/
+        internal static extern IntPtr CreateEvent(IntPtr lpEventAttributes, bool bManualReset, bool bInitialState, string lpName);
 
         [DllImport("kernel32.dll", SetLastError = true)]
         internal static extern bool GetOverlappedResult(IntPtr hFile,
