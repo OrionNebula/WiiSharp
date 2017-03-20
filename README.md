@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/OrionNebula/WiiSharp.svg?branch=master)](https://travis-ci.org/OrionNebula/WiiSharp)
+
 # WiiSharp
 Interact with Wii remotes through a sleek managed API.
 
