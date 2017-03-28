@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EnarcLabs.WiiSharp.Native
+namespace Lotrek.WiiSharp.Native
 {
     internal class Constants
     {

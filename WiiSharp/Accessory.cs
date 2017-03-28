@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace EnarcLabs.WiiSharp
+namespace Lotrek.WiiSharp
 {
     public abstract class Accessory
     {

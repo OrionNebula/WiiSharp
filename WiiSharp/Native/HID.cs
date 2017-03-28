@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EnarcLabs.WiiSharp.Native
+namespace Lotrek.WiiSharp.Native
 {
     internal static class HID
     {

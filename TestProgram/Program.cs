@@ -1,5 +1,5 @@
-﻿using EnarcLabs.WiiSharp;
-using EnarcLabs.WiiSharp.Enum;
+﻿using Lotrek.WiiSharp;
+using Lotrek.WiiSharp.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;

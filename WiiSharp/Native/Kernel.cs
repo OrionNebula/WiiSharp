@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace EnarcLabs.WiiSharp.Native
+namespace Lotrek.WiiSharp.Native
 {
     internal static class Kernel
     {

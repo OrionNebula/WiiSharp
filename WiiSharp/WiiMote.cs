@@ -7,10 +7,10 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using EnarcLabs.WiiSharp.Enum;
-using EnarcLabs.WiiSharp.Native;
+using Lotrek.WiiSharp.Enum;
+using Lotrek.WiiSharp.Native;
 
-namespace EnarcLabs.WiiSharp
+namespace Lotrek.WiiSharp
 {
     /// <summary>
     /// Called when a Wii remote is disconnected.
